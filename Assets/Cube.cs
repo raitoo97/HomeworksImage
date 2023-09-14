@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Cube : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int index;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
         
     }
+    public int INDEX { get { return index; } }
 }
