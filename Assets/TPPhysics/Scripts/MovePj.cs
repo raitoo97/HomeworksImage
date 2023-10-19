@@ -12,8 +12,6 @@ public class MovePj : MonoBehaviour
         controller.Enable();
         controller.Move.Interact.performed += Interact_performed;
     }
-
-   
     private void OnDisable()
     {
         controller.Move.Interact.performed -= Interact_performed;
@@ -23,10 +21,6 @@ public class MovePj : MonoBehaviour
     private void Interact_performed(InputAction.CallbackContext obj)
     {
         active_ray.Invoke();
-    }
-    private void Awake()
-    {
-        degrees_camera = 0.0f;
     }
     private void RotatePj()
     {
@@ -38,7 +32,7 @@ public class MovePj : MonoBehaviour
         float rotation_camera = controller.Move.MoveCamera.ReadValue<float>();
         degrees_camera += rotation_camera;
         degrees_camera = Mathf.Clamp(degrees_camera, -45.0f, 45.0f);
-        Camera.main.transform.localEulerAngles = new Vector3 (degrees_camera, 0, 0);
+        Camera.main.transform.localEulerAngles = new Vector3(degrees_camera, 0, 0);
     }
     private void Update()
     {
