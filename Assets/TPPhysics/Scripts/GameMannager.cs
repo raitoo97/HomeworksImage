@@ -1,18 +1,23 @@
 using UnityEngine;
 public class GameMannager : MonoBehaviour
 {
-    private int points_to_win;
     public static GameMannager Instance;
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
-        points_to_win = 0;
     }
-    public  void ChangeScore(int points)
+    private void Start()
     {
-        points_to_win += points;
+        TimeMannager.Instance.EndGame += FinishGame;
+    }
+    public  void FinishGame()
+    {
+        MannagerUI.Instance.ShowFinishScreen();
+        var refpj = GameObject.FindObjectOfType<MovePj>();
+        refpj.enabled = false;
+        Time.timeScale = 0.0f;
     }
 }

@@ -3,7 +3,7 @@ public class BallScript : MonoBehaviour
 {
     private void OnEnable()
     {
-        Invoke("Desativate", 5.0f);
+        Invoke("Desativate", 10.0f);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -12,16 +12,11 @@ public class BallScript : MonoBehaviour
         if (!local_collision.useGravity)
         {
             local_collision.useGravity = true;
+            Desativate();
         }
         else if(local_collision.useGravity)
         {
             local_collision.useGravity = false;
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.layer == 9)
-        {
             Desativate();
         }
     }

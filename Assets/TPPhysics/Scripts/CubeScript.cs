@@ -5,7 +5,8 @@ public class CubeScript : MonoBehaviour
     {
         if(other.gameObject.layer == 9)
         {
-            print("Si");
+            PointsMannager.Instance.ChangeScore(1);
+            Destroy(this.gameObject);
         }
     }
 }

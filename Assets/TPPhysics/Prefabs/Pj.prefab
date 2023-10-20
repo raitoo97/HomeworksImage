@@ -45,8 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pj: {fileID: 0}
-  gun_sight: {fileID: 0}
-  ex: {fileID: 0}
 --- !u!1 &6898750769448091609
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,3 +321,5 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 128
+  yellow: {fileID: 2100000, guid: 3d06b2c6f5431654fadb3df7d0f67ff5, type: 2}
+  Green: {fileID: 2100000, guid: e258bb8a4285df341ac6b1277f50fb93, type: 2}
