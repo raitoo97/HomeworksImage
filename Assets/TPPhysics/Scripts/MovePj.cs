@@ -31,7 +31,7 @@ public class MovePj : MonoBehaviour
     {
         float rotation_camera = controller.Move.MoveCamera.ReadValue<float>();
         degrees_camera += rotation_camera;
-        degrees_camera = Mathf.Clamp(degrees_camera, -45.0f, 45.0f);
+        degrees_camera = Mathf.Clamp(degrees_camera, -70.0f, 70.0f);
         Camera.main.transform.localEulerAngles = new Vector3(degrees_camera, 0, 0);
     }
     private void Update()
