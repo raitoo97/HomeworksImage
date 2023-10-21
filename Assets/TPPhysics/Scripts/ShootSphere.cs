@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class ShootSphere : MonoBehaviour
 {
@@ -10,15 +11,19 @@ public class ShootSphere : MonoBehaviour
     void Start()
     {
         pj = GameObject.FindObjectOfType<MovePj>();
-        pj.active_ray += Shoot;
+        pj.active_ray += ShootFunction;
     }
-    private void Shoot()
+    private void ShootFunction()
     {
+        StartCoroutine(Shoot());
+    }
+    
+    IEnumerator Shoot()
+    {
+        yield return new WaitForFixedUpdate();
         var go = PoolBalls.instance.ReturnBall();
-        if (go == null) return;
         go.transform.position = this.transform.position;
         go.transform.rotation = this.transform.rotation;
-        if (go.GetComponent<Rigidbody>() == null) return;
         go.GetComponent<Rigidbody>().AddForce(this.transform.forward * force, ForceMode.Impulse);
     }
 }
