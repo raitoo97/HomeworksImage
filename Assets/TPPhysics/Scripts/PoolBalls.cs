@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 public class PoolBalls : MonoBehaviour
@@ -34,12 +35,14 @@ public class PoolBalls : MonoBehaviour
             if (!index.activeSelf)
             {
                 index.SetActive(true);
+                index.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 return index;
             }
         }
         CompletPool(1);
         var Aux = ball_list[ball_list.Count - 1];
         Aux.SetActive(true);
+        Aux.GetComponent<Rigidbody>().velocity = Vector3.zero;
         return Aux;
     }
 }
