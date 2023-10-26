@@ -1,21 +1,32 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 public class GameMannager : MonoBehaviour
 {
-    public static GameMannager Instance;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
+    MannagerUI RefUi;
+    public Text finish_text;
     private void Start()
     {
-        TimeMannager.Instance.EndGame += FinishGame;
+        RefUi = GameMannager.FindObjectOfType<MannagerUI>();
+        var condition = RefUi != null;
+        condition = (condition = true ? true : false);
+        if (condition)
+        {
+            StartCoroutine(Controltime());
+            RefUi.OnFinishSceen += FinishGame;
+        }
+    }
+    IEnumerator Controltime()
+    {
+        while (true)
+        {
+            RefUi.ChangeTimeText(0);
+            yield return null;
+        }
     }
     public  void FinishGame()
     {
-        MannagerUI.Instance.ShowFinishScreen();
+        finish_text.gameObject.SetActive(true);
         var refpj = GameObject.FindObjectOfType<MovePj>();
         refpj.enabled = false;
         Time.timeScale = 0.0f;

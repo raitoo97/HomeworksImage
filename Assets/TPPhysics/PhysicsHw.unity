@@ -1585,6 +1585,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1082183467775347533, guid: 874cf69d013a2a84dbe8b74a7dc9b6c2,
+        type: 3}
+      propertyPath: time_text
+      value: 
+      objectReference: {fileID: 1637977178}
+    - target: {fileID: 1592162328723263848, guid: 874cf69d013a2a84dbe8b74a7dc9b6c2,
+        type: 3}
+      propertyPath: points_text
+      value: 
+      objectReference: {fileID: 742253481}
     - target: {fileID: 2436296678438650288, guid: 874cf69d013a2a84dbe8b74a7dc9b6c2,
         type: 3}
       propertyPath: m_Name
@@ -1610,6 +1620,11 @@ PrefabInstance:
       propertyPath: restart_level
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7376954980664233050, guid: 874cf69d013a2a84dbe8b74a7dc9b6c2,
+        type: 3}
+      propertyPath: finish_text
+      value: 
+      objectReference: {fileID: 1686861609}
     - target: {fileID: 9077855500901686566, guid: 874cf69d013a2a84dbe8b74a7dc9b6c2,
         type: 3}
       propertyPath: m_LocalPosition.x

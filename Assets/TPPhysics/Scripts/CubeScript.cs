@@ -5,7 +5,8 @@ public class CubeScript : MonoBehaviour
     {
         if(other.gameObject.layer == 9)
         {
-            PointsMannager.Instance.ChangeScore(1);
+            var UIREF = GameObject.FindObjectOfType<MannagerUI>();
+            UIREF.ChangeScoreText(1);
             Destroy(this.gameObject);
         }
     }

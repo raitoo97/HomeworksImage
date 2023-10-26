@@ -1,20 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class PointsMannager : MonoBehaviour
 {
-    public static PointsMannager Instance;
     private int points_to_win;
-    private void Awake()
+    public Text points_text;
+    private void Start()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-        points_to_win = 0;
+        var UIREF = GameObject.FindObjectOfType<MannagerUI>();
+        UIREF.OnChangeScore += ChangeScore;
     }
     public void ChangeScore(int points)
     {
         points_to_win += points;
-        MannagerUI.Instance.ChangeScore(points_to_win);
+        points_text.text = points_to_win.ToString();
         print(points_to_win);
     }
+
 }

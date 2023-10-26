@@ -1,41 +1,29 @@
-using System;
-using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 public class TimeMannager : MonoBehaviour
 {
-    public static TimeMannager Instance;
     public float time;
-    public Action EndGame;
-    private Coroutine corrutine_time;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        time = 0.0f;
-    }
+    public Text time_text;
     private void Start()
     {
-        StartTimeCoroutine();
+        var REFUI = GameObject.FindObjectOfType<MannagerUI>();
+        REFUI.OnChangeTime += StartedTime;
     }
-    public void StartTimeCoroutine()
+    public void StartedTime(float current_time)
     {
-        corrutine_time = StartCoroutine(TimeEnd(20.0f));
-    }
-    public void StopTimeCoroutine()
-    {
-        StopCoroutine(corrutine_time);
-    }
-    IEnumerator TimeEnd(float finish_time)
-    {
-        time = 0;
-        while (time < finish_time)
+        float real_time = Time.time;
+        current_time = real_time;
+        time = current_time;
+        time_text.text = time.ToString();
+        if(time >= 5)
         {
-            time = Time.time;
-            MannagerUI.Instance.ChangeTime(time);
-            yield return null;
+            var RefMannagerUI = GameMannager.FindObjectOfType<MannagerUI>();
+            var condition = RefMannagerUI != null;
+            condition = true? true: false;
+            if(condition)
+            {
+                RefMannagerUI.OnFinishScreen();
+            }
         }
-        EndGame.Invoke();
     }
 }

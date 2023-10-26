@@ -1,32 +1,20 @@
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 public class MannagerUI : MonoBehaviour
 {
-    public static MannagerUI Instance;
-    public Text time;
-    public Text points;
-    public Text finish_text;
-    private void Awake()
+    public Action<int> OnChangeScore;
+    public Action<float> OnChangeTime;
+    public Action OnFinishSceen;
+    public void ChangeScoreText(int current_score)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        OnChangeScore?.Invoke(current_score);
     }
-    private void Start()
+    public void ChangeTimeText(float finish_time)
     {
-        finish_text.gameObject.SetActive(false);
+        OnChangeTime?.Invoke(finish_time);
     }
-    public void ChangeTime(float timer)
+    public void OnFinishScreen()
     {
-        time.text = timer.ToString();
-    }
-    public void ChangeScore(int current_score)
-    {
-        points.text = current_score.ToString();
-    }
-    public void ShowFinishScreen()
-    {
-        finish_text.gameObject.SetActive(true);
+        OnFinishSceen?.Invoke();
     }
 }
