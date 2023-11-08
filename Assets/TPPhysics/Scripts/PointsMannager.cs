@@ -13,7 +13,6 @@ public class PointsMannager : MonoBehaviour
     {
         points_to_win += points;
         points_text.text = points_to_win.ToString();
-        print(points_to_win);
     }
 
 }

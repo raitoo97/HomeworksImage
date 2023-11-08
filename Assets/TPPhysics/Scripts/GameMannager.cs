@@ -20,7 +20,7 @@ public class GameMannager : MonoBehaviour
     {
         while (true)
         {
-            RefUi.ChangeTimeText(0);
+            RefUi.ChangeTimeText();
             yield return null;
         }
     }

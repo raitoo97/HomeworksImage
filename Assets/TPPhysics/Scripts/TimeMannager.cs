@@ -9,13 +9,13 @@ public class TimeMannager : MonoBehaviour
         var REFUI = GameObject.FindObjectOfType<MannagerUI>();
         REFUI.OnChangeTime += StartedTime;
     }
-    public void StartedTime(float current_time)
+    public void StartedTime()
     {
         float real_time = Time.time;
-        current_time = real_time;
+        var current_time = real_time;
         time = current_time;
         time_text.text = time.ToString();
-        if(time >= 5)
+        if(time >= 20)
         {
             var RefMannagerUI = GameMannager.FindObjectOfType<MannagerUI>();
             var condition = RefMannagerUI != null;

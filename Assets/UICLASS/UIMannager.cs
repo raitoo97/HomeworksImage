@@ -1,23 +1,15 @@
 using System;
 using UnityEngine;
-
 public class UIMannager : MonoBehaviour
 {
-    public Action StartCinematic;
-    public Action EndCinematic;
-    public Action<string,int>ShowWords;
-    public void OnStartCinematic()
+    public Action ShowPannel;
+    public Action ClosePannel;
+    public void OnShowPannel()
     {
-        StartCinematic?.Invoke();
+        ShowPannel?.Invoke();
     }
-    public void OnEndCinematic()
+    public void OnHiddenPannel()
     {
-        EndCinematic?.Invoke();
+        ClosePannel?.Invoke();
     }
-    public void OnShowWords(string word,int teset)
-    {
-        ShowWords?.Invoke(word, teset);
-    }
-
-
 }

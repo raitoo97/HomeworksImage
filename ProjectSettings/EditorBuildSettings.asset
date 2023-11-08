@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TPPhysics/PhysicsHw.unity
     guid: e2b0971e03d9b744da861525387f6db0
+  - enabled: 1
+    path: Assets/EscenasClass/Escena1.unity
+    guid: 3c301bea213b9114583c50b0da65876e
+  - enabled: 1
+    path: Assets/EscenasClass/Escena2.unity
+    guid: fdf03b77b44adba429bc01e3822b97cd
+  - enabled: 1
+    path: Assets/EscenasClass/Escena3.unity
+    guid: c0343e71889153f4194b1d858e2104ce
   m_configObjects: {}

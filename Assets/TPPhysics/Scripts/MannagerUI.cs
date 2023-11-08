@@ -3,15 +3,15 @@ using UnityEngine;
 public class MannagerUI : MonoBehaviour
 {
     public Action<int> OnChangeScore;
-    public Action<float> OnChangeTime;
+    public Action OnChangeTime;
     public Action OnFinishSceen;
     public void ChangeScoreText(int current_score)
     {
         OnChangeScore?.Invoke(current_score);
     }
-    public void ChangeTimeText(float finish_time)
+    public void ChangeTimeText()
     {
-        OnChangeTime?.Invoke(finish_time);
+        OnChangeTime?.Invoke();
     }
     public void OnFinishScreen()
     {

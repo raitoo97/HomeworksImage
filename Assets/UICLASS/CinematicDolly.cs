@@ -11,14 +11,13 @@ public class CinematicDolly : MonoBehaviour
     IEnumerator MoveCinematic()
     {
         float recorrido = 0.0f;
-        while(recorrido < 1)
+        while (recorrido < 1)
         {
             virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = recorrido;
             yield return new WaitForSeconds(.1f);
             recorrido += Time.deltaTime * 5;
         }
-        var referencia = GameObject.FindObjectOfType<UIMannager>();
-        referencia.OnEndCinematic();
-
+        var REFUI = GameObject.FindObjectOfType<UIMannager>();
+        REFUI.OnShowPannel();
     }
 }
